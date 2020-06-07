@@ -1,10 +1,10 @@
 def get_menu_input():
 	while True:
 		try:
-			menu_input = int(input('''
-Here are your options:\n
-1) View team stats
-2) Quit\n\n> '''))
+			menu_input = int(input(('\nHere are your options:\n\n'
+									'1) View team stats\n'
+									'2) Quit\n\n'
+									'> ')))
 		except ValueError:
 			print('\nInvalid input.')
 			continue
@@ -20,12 +20,11 @@ Here are your options:\n
 def get_team_input():
 	while True:
 		try:
-			team_input = int(input('''
-Select team:
-
-1) Bandits
-2) Panthers
-3) Warriors\n\n> '''))
+			team_input = int(input(('\nSelect team:\n\n'
+									'1) Bandits\n'
+									'2) Panthers\n'
+									'3) Warriors\n\n'
+									'> ')))
 		except ValueError:
 			print('\nInvalid input.')
 			continue
@@ -34,6 +33,7 @@ Select team:
 				print('\nInvalid input')
 				continue
 		break
+
 	if team_input == 1:
 		team = 'Bandits'
 	elif team_input == 2:

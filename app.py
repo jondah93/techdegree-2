@@ -12,7 +12,6 @@ def clean_data(players):
 
 def group_by_xp(players):
 	'''Returns lists exp, inexp of all experienced, inexperienced players'''
-
 	exp = [player for player in players if player['experience']]
 	unexp = [player for player in players if not player['experience']]
 
@@ -21,7 +20,6 @@ def group_by_xp(players):
 
 def balance_teams(players, teams):
 	'''Populates the teams evenly with experienced and unexperienced players'''
-	players_per_team = (len(PLAYERS) // len(TEAMS))
 	exp, inexp = group_by_xp(players)
 
 	team_rosters = {team : [] for team in teams}
@@ -74,8 +72,7 @@ if __name__ == '__main__':
 	while True:
 		if p.get_menu_input() == 1:
 			team = p.get_team_input()
-			print('''
-Team: %s\n\nStats:\n----------''' % team)
+			print('\nTeam: %s\n\nStats:\n----------''' % team)
 			print('Total players: %s' % len(balanced_teams[team]))
 			print('''Total experienced: %s\nTotal inexperienced: %s''' % get_experience(balanced_teams, team))
 			print('Average height: %s' % get_average_height(balanced_teams, team))
