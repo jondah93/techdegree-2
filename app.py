@@ -21,7 +21,6 @@ def group_by_xp(players):
 def balance_teams(players, teams):
 	'''Populates the teams evenly with experienced and unexperienced players'''
 	exp, inexp = group_by_xp(players)
-
 	team_rosters = {team : [] for team in teams}
 
 	i = 0
@@ -57,7 +56,9 @@ def get_experience(teams, team):
 	
 	return exp, inexp
 
+
 def get_roster(teams, team):
+	'''Returns a team roster in a comma separated string'''
 	return ', '.join([player['name'] for player in teams[team]])
 
 
@@ -79,6 +80,7 @@ if __name__ == '__main__':
 			print('\nPlayers on the team:\n%s' % get_roster(balanced_teams, team))
 			print('\nGuardians:\n%s' % get_guardians(balanced_teams, team))
 		else:
+			# If the user selects Quit from the menu.
 			break
 
 		input('\nPress ENTER to continue...')
